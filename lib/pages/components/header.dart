@@ -13,10 +13,6 @@ List<HeaderItem> headerItems = [
     onTap: () {},
   ),
   HeaderItem(
-    title: "INTRO",
-    onTap: () {},
-  ),
-  HeaderItem(
     title: "PORTFOLIO",
     onTap: () {},
   ),

@@ -1,3 +1,4 @@
+import 'package:commanderk33n/pages/components/carousel.dart';
 import 'package:commanderk33n/pages/components/header.dart';
 import 'package:commanderk33n/utils/constants.dart';
 import 'package:commanderk33n/utils/globals.dart';
@@ -63,7 +64,10 @@ class Home extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [Header()],
+          children: [
+            const Header(),
+            Carousel(),
+          ],
         ),
       ),
     );
