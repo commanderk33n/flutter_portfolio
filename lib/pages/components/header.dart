@@ -1,6 +1,9 @@
 import 'package:commanderk33n/models/header_item.dart';
 import 'package:commanderk33n/utils/constants.dart';
+import 'package:commanderk33n/utils/globals.dart';
+import 'package:commanderk33n/utils/screen_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -70,7 +73,8 @@ class HeaderRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveVisibility(
-      visible: true,
+      visible: false,
+      visibleWhen: const [Condition.largerThan(name: MOBILE)],
       child: Row(
         children: headerItems
             .map(
@@ -126,6 +130,42 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ScreenHelper(
+      desktop: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: buildHeader(),
+      ),
+      mobile: buildMobileHeader(),
+      tablet: buildHeader(),
+    );
+  }
+
+  // mobile header
+  Widget buildMobileHeader() {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const HeaderLogo(),
+            GestureDetector(
+              onTap: () {
+                Globals.scaffoldKey.currentState?.openEndDrawer();
+              },
+              child: const Icon(
+                FlutterIcons.menu_fea,
+                color: Colors.white,
+                size: 28.0,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildHeader() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
