@@ -70,7 +70,7 @@ List<CarouselItem> carouselItems = List.generate(
       ],
     ),
     image: Image.asset(
-      "k33n.png",
+      "assets/k33n.png",
       fit: BoxFit.contain,
     ),
   ),
