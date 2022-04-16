@@ -57,7 +57,7 @@ List<CarouselItem> carouselItems = List.generate(
             child: TextButton(
               onPressed: () {},
               child: const Text(
-                "GET STARTED",
+                "CONTACT",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 13.0,
